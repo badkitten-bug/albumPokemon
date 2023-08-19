@@ -84,7 +84,6 @@ function displayFilteredByType(event) {
         botonId === "see-all" ||
         botonId === "ver-todos" ||
         data.types.some(type => {
-          console.log("Tipo del Pokémon:", type.type.name.toLowerCase()); // Agrega este console.log
           return type.type.name.toLowerCase() === botonId;
         })
       );
