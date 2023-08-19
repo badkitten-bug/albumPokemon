@@ -1,13 +1,18 @@
+//Importar elementos del DOM 
 const listaPokemon = document.querySelector("#listaPokemon");
 const botonesHeader = document.querySelectorAll(".btn-header");
+
+// URL base de la API
 let URL = "https://pokeapi.co/api/v2/pokemon/";
 
+// Bucle para obtener y mostrar los Pokemon
 for (let i = 1; i <= 151; i++) {
   fetch(URL + i)
     .then((response) => response.json())
-    .then((data) => mostrarPokemon(data));
+    .then((data) => mostrarPokemon(data)); // Llamada a la funcion mostrarPOkemon
 }
 
+// Funcion para mostrar los datos de un Pokemon
 function mostrarPokemon(poke) {
   let tipos = poke.types.map((type) => `<p class="${type.type.name} tipo">${type.type.name}</p>`
   );
@@ -45,6 +50,7 @@ function mostrarPokemon(poke) {
   listaPokemon.append(div);
 }
 
+// Bucle para manejar los botones de un filtrado
 botonesHeader.forEach((boton) =>
   boton.addEventListener("click", (event) => {
     const botonId = event.currentTarget.id;
